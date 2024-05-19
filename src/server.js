@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import configViewEngine from "./config/viewEngine";
 import initWebRoutes from "./route/web";
+import connectDB from "./config/connectDB";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -14,6 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 configViewEngine(app);
 //TODO: Init web route
 initWebRoutes(app);
+//TODO: connect database by sequelize
+connectDB();
 
 const port = process.env.PORT || 3001
 //TODO: Port === undifine => port === 3001
